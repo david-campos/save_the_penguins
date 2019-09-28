@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextSwitcher;
 import android.widget.TextView;
 
@@ -38,7 +39,7 @@ public class RandFactsFragment extends Fragment {
                 textView.setText(s);
             }
         });
-        final Button buttonNextFact = root.findViewById(R.id.btn_next_fact);
+        final ImageButton buttonNextFact = root.findViewById(R.id.btn_next_fact);
         buttonNextFact.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 randFactsViewModel.nextRandomFact();
