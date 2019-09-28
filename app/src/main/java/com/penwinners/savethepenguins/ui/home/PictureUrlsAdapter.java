@@ -1,5 +1,6 @@
 package com.penwinners.savethepenguins.ui.home;
 
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,10 +10,15 @@ import android.widget.ImageView;
 import com.penwinners.savethepenguins.R;
 
 public class PictureUrlsAdapter extends BaseAdapter {
-    int[] ids;
+    public int[] ids;
+    private final SharedPreferences sharedPreferences;
+    private final HomeFragment homeFragment;
 
-    public PictureUrlsAdapter(int[] ids) {
+    public PictureUrlsAdapter(int[] ids, SharedPreferences sharedPreferences,
+                              HomeFragment fragment) {
         this.ids = ids.clone();
+        this.sharedPreferences = sharedPreferences;
+        this.homeFragment = fragment;
     }
 
     @Override
@@ -31,14 +37,28 @@ public class PictureUrlsAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         ImageView dummyImageView;
+
         if (convertView == null) {
             dummyImageView = (ImageView) LayoutInflater.from(parent.getContext())
                     .inflate(R.layout.penguin_display, parent, false);
         } else {
             dummyImageView = (ImageView) convertView;
         }
+        dummyImageView.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putInt(
+                        v.getContext().getResources().getString(R.string.prf_selected_penguin),
+                        ids[position]);
+                editor.apply();
+                editor.commit();
+                if (homeFragment != null) {
+                    homeFragment.changeToMyPenguin();
+                }
+            }
+        });
         dummyImageView.setImageResource(ids[position]);
         return dummyImageView;
     }

@@ -8,29 +8,18 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
 
 import com.penwinners.savethepenguins.R;
 
 import java.util.Objects;
 
 public class HomeFragment extends Fragment {
-    private HomeViewModel homeViewModel;
-
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        homeViewModel =
-                ViewModelProviders.of(this).get(HomeViewModel.class);
         View root = inflater.inflate(R.layout.fragment_home, container, false);
-        homeViewModel.getText().observe(this, new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {}
-        });
 
         Context context = getContext();
         FragmentManager fragmentManager = Objects.requireNonNull(getActivity()).getSupportFragmentManager();
@@ -41,7 +30,9 @@ public class HomeFragment extends Fragment {
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             Fragment destFragment;
             if (selected == 0) {
-                destFragment = new PenguinListFragment();
+                PenguinListFragment fragment = new PenguinListFragment();
+                fragment.setParentFragment(this);
+                destFragment = fragment;
             } else {
                 destFragment = MyPenguinFragment.newInstance("A", "B");
             }
@@ -49,5 +40,13 @@ public class HomeFragment extends Fragment {
             fragmentTransaction.commit();
         }
         return root;
+    }
+
+    public void changeToMyPenguin() {
+        FragmentManager fragmentManager = Objects.requireNonNull(getActivity()).getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        Fragment destFragment = MyPenguinFragment.newInstance("A", "B");
+        fragmentTransaction.replace(R.id.fragment, destFragment);
+        fragmentTransaction.commit();
     }
 }
