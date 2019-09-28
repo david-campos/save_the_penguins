@@ -1,4 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="achievements"></string-array>
+    <string-array name="achievements">
+        <item>T|0|0|Energy usage</item>
+        <item>N|6|4|Turn off the light when you leave a room</item>
+        <item>N|6|4|Closing the tap on while you brush your teeth</item>
+        <item>N|7|3|Unplug computers, TVs… when you're not using them</item>
+        <item>T|0|0|Food</item>
+        <item>N|7|1|Not waisting food food</item>
+        <item>N|8|3|Do not eat beef, lamb or fish</item>
+        <item>N|8|3|Buying organic and local products</item>
+        <item>N|7|5|Eating the food that I have grown by myself</item>
+        <item>T|0|0|Commuting</item>
+        <item>N|9|2|Getting around by bike or taking public transport</item>
+    </string-array>
+
 </resources>

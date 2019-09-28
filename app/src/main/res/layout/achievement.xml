@@ -1,17 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal" android:layout_width="match_parent"
-    android:layout_height="75dp">
-
-    <ImageButton
-        android:id="@+id/button"
-        android:layout_width="30dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:scaleType="fitCenter"
-        android:adjustViewBounds="true"
-        android:backgroundTint="@color/colorAccent"
-        android:src="@drawable/ic_add_black_24dp" />
+    android:layout_width="match_parent"
+    android:layout_height="75dp"
+    android:orientation="horizontal">
 
     <TextView
         android:id="@+id/description"
@@ -20,19 +11,29 @@
         android:layout_gravity="center_vertical"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
-        android:textSize="18sp"
         android:layout_weight="5"
-        android:text="Recycling" />
+        android:text="Recycling"
+        android:textSize="18sp" />
+
+    <ImageButton
+        android:id="@+id/button"
+        android:layout_width="30dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:adjustViewBounds="true"
+        android:backgroundTint="@color/colorMiss"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_clear_black_24dp" />
 
     <ImageButton
         android:id="@+id/button2"
         android:layout_width="30dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:scaleType="fitCenter"
         android:adjustViewBounds="true"
-        android:backgroundTint="@color/colorAccent"
-        android:src="@drawable/ic_remove_black_24dp" />
+        android:backgroundTint="@color/colorDone"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_done_black_24dp" />
 
 
 </LinearLayout>
