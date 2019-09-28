@@ -22,4 +22,9 @@
         android:name="com.penwinners.savethepenguins.ui.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
+    <fragment
+        android:id="@+id/navigation_donation"
+        android:name="com.penwinners.savethepenguins.ui.donation.DonationFragment"
+        android:label="@string/fragment_donation_title"
+        tools:layout="@layout/fragment_donation" />
 </navigation>
