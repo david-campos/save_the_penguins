@@ -34,7 +34,7 @@ public class HomeFragment extends Fragment {
                 fragment.setParentFragment(this);
                 destFragment = fragment;
             } else {
-                destFragment = MyPenguinFragment.newInstance("A", "B");
+                destFragment = new MyPenguinFragment();
             }
             fragmentTransaction.replace(R.id.fragment, destFragment);
             fragmentTransaction.commit();
@@ -45,7 +45,7 @@ public class HomeFragment extends Fragment {
     public void changeToMyPenguin() {
         FragmentManager fragmentManager = Objects.requireNonNull(getActivity()).getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        Fragment destFragment = MyPenguinFragment.newInstance("A", "B");
+        Fragment destFragment = new MyPenguinFragment();
         fragmentTransaction.replace(R.id.fragment, destFragment);
         fragmentTransaction.commit();
     }
