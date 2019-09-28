@@ -1,10 +1,15 @@
 package com.penwinners.savethepenguins.ui.notifications;
 
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.stream.*;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
@@ -36,7 +41,15 @@ public class NotificationsFragment extends Fragment {
         recyclerView.setLayoutManager(layoutManager);
 
         // specify an adapter (see also next example)
-        AchievementAdapter mAdapter = new AchievementAdapter(new String[]{"Recycling", "Eat sushi", "Use of public transport"});
+        Resources res = getResources();
+        String[] achievements = res.getStringArray(R.array.achievements);
+
+        ArrayList<Achievement> achs = new ArrayList<>();
+        for (String t : achievements) {
+            achs.add(new Achievement(t));
+        }
+        AchievementAdapter mAdapter = new AchievementAdapter(achs);
+
         recyclerView.setAdapter(mAdapter);
         return root;
     }
