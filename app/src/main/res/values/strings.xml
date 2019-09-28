@@ -5,4 +5,7 @@
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Achievements</string>
     <string name="btn_next_fact">Next</string>
+
+    <string name="prf_prefs_key">preferences</string>
+    <string name="prf_selected_penguin">selected-penguin</string>
 </resources>

@@ -1,10 +1,11 @@
 package com.penwinners.savethepenguins.ui.home;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -22,15 +23,23 @@ public class HomeFragment extends Fragment {
         homeViewModel =
                 ViewModelProviders.of(this).get(HomeViewModel.class);
         View root = inflater.inflate(R.layout.fragment_home, container, false);
-        final TextView textView = root.findViewById(R.id.text_home);
         homeViewModel.getText().observe(this, new Observer<String>() {
             @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
+            public void onChanged(@Nullable String s) {}
         });
 
+        Context context = getContext();
 
+        if (context  != null) {
+            SharedPreferences sharedPref = getContext().getSharedPreferences(
+                    getString(R.string.prf_prefs_key), Context.MODE_PRIVATE);
+            int selected = sharedPref.getInt(getString(R.string.prf_selected_penguin), 0);
+            if (selected != 0) {
+
+            } else {
+
+            }
+        }
         return root;
     }
 }
