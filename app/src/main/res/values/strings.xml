@@ -10,4 +10,7 @@
     <string name="prf_selected_penguin">selected-penguin</string>
     <string name="prf_player_xp">player-xp</string>
     <string name="prf_penguin_name">penguin-name</string>
+
+    <string name="fragment_donation_title">Donation</string>
+    <string name="donation_help_text">Help the penguins by contributing to Antarctica NGO</string>
 </resources>
