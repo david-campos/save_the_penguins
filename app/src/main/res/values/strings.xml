@@ -8,4 +8,5 @@
 
     <string name="prf_prefs_key">preferences</string>
     <string name="prf_selected_penguin">selected-penguin</string>
+    <string name="prf_player_xp">player-xp</string>
 </resources>

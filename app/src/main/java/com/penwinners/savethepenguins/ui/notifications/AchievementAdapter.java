@@ -1,5 +1,7 @@
 package com.penwinners.savethepenguins.ui.notifications;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -33,6 +35,17 @@ class MyViewHolder extends RecyclerView.ViewHolder {
             public void onClick(View v) {
                 Snackbar.make(v, "Oh! You'll do better next time!", Snackbar.LENGTH_LONG)
                         .show();
+                SharedPreferences sharedPref = v.getContext().getSharedPreferences(
+                        v.getContext().getResources().getString(R.string.prf_prefs_key), Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPref.edit();
+                int xp = sharedPref.getInt(v.getContext().getResources().getString(R.string.prf_player_xp), 50);
+                xp -= bad;
+                if (xp < 0) xp = 0; if (xp > 100) xp = 100;
+                editor.putInt(v.getContext().getResources().getString(R.string.prf_player_xp), xp);
+                editor.apply();
+                editor.commit();
+
+                System.out.println(xp);
             }
         });
 
@@ -41,6 +54,17 @@ class MyViewHolder extends RecyclerView.ViewHolder {
             public void onClick(View v) {
                 Snackbar.make(v, "Great! You're saving the penguins!", Snackbar.LENGTH_LONG)
                         .show();
+                SharedPreferences sharedPref = v.getContext().getSharedPreferences(
+                        v.getContext().getResources().getString(R.string.prf_prefs_key), Context.MODE_PRIVATE);
+                int xp = sharedPref.getInt(v.getContext().getResources().getString(R.string.prf_player_xp), 50);
+                SharedPreferences.Editor editor = sharedPref.edit();
+                xp += good;
+                if (xp < 0) xp = 0; if (xp > 100) xp = 100;
+                editor.putInt(v.getContext().getResources().getString(R.string.prf_player_xp), xp);
+                editor.apply();
+                editor.commit();
+
+                System.out.println(xp);
             }
         });
     }
