@@ -12,10 +12,10 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.penwinners.savethepenguins.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:id="@+id/navigation_rand_facts"
+        android:name="com.penwinners.savethepenguins.ui.rand_facts.RandFactsFragment"
+        android:label="@string/title_rand_facts"
+        tools:layout="@layout/fragment_rand_facts" />
 
     <fragment
         android:id="@+id/navigation_notifications"
