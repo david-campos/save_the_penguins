@@ -1,0 +1,11 @@
+<resources>
+    <string-array name="facts_array">
+        <item>There are 18 penguin species and 13 of them are threatened.</item>
+        <item>Emperor Penguins are the tallest species, standing nearly 4 feet tall. The smallest is the Little Blue Penguin, which is only about 16 inches.</item>
+        <item>The fastest species is the Gentoo Penguin, which can reach swimming speeds up to 22 mph.</item>
+        <item>A penguin's striking coloring is a matter of camouflage; from above, its black back blends into the murky depths of the ocean.</item>
+        <item>Fossils place the earliest penguin relative at some 60 million years ago, meaning an ancestor of the birds we see today survived the mass extinction of the dinosaurs.</item>
+        <item>All but two species of penguins breed in large colonies of up to one thousand birds.</item>
+        <item>It varies by species, but many penguins will mate with the same member of the opposite sex season after season.</item>
+    </string-array>
+</resources>
