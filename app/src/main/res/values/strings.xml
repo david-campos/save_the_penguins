@@ -3,6 +3,6 @@
     <string name="title_home">Home</string>
     <string name="title_rand_facts">Random facts</string>
     <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_notifications">Achievements</string>
     <string name="btn_next_fact">Next</string>
 </resources>
