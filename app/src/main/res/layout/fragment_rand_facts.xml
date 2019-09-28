@@ -20,12 +20,16 @@
             android:layout_height="wrap_content"
             android:textAlignment="center"
             android:layout_gravity="center_vertical"
+            android:textStyle="italic"
+            android:fontFamily="serif"
             android:textSize="30sp"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:textAlignment="center"
+            android:textStyle="italic"
+            android:fontFamily="serif"
             android:textSize="30sp"/>
     </TextSwitcher>
 

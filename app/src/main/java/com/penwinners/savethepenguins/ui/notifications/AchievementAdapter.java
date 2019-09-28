@@ -1,5 +1,6 @@
 package com.penwinners.savethepenguins.ui.notifications;
 
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +9,7 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.penwinners.savethepenguins.R;
 
 import java.util.ArrayList;
@@ -21,14 +23,32 @@ private ArrayList<Achievement> mDataset;
 class MyViewHolder extends RecyclerView.ViewHolder {
     // each data item is just a string in this case
     public TextView textView;
+    public int bad;
+    public int good;
     public MyViewHolder(View v) {
         super(v);
         textView = v.findViewById(R.id.description);
+        v.findViewById(R.id.button_fail).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Snackbar.make(v, "Oh! You'll do better next time!", Snackbar.LENGTH_LONG)
+                        .show();
+            }
+        });
+
+        v.findViewById(R.id.button_ok).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Snackbar.make(v, "Great! You're saving the penguins!", Snackbar.LENGTH_LONG)
+                        .show();
+            }
+        });
     }
 }
 
 class TitleViewHolder extends RecyclerView.ViewHolder {
     public TextView textView;
+
     public TitleViewHolder(View v) {
         super(v);
         textView = v.findViewById(R.id.description);
@@ -66,6 +86,8 @@ class TitleViewHolder extends RecyclerView.ViewHolder {
         if (holder.getItemViewType() == 1) {
             MyViewHolder vh = (MyViewHolder) holder;
             vh.textView.setText(mDataset.get(position).text);
+            vh.bad = mDataset.get(position).negative_weight;
+            vh.good = mDataset.get(position).positive_weight;
         } else {
             TitleViewHolder vh = (TitleViewHolder) holder;
             vh.textView.setText(mDataset.get(position).text);
