@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Save The Penguins</string>
+    <string name="app_name">My Penguin</string>
     <string name="title_home">My penguin</string>
     <string name="title_rand_facts">Random facts</string>
     <string name="title_dashboard">Dashboard</string>
