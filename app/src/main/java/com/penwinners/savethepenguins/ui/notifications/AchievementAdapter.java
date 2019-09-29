@@ -15,10 +15,21 @@ import com.google.android.material.snackbar.Snackbar;
 import com.penwinners.savethepenguins.R;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class AchievementAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 private ArrayList<Achievement> mDataset;
-
+private static final String[] DONE = new String[] {
+        "Great! You're saving the penguins!",
+        "Well done! Your penguin is happier now!",
+        "Wonderful! Penguins love you!",
+        "Keep going! You are doing very well!"
+};
+private static final String[] MISSED = new String[] {
+        "Oh! You'll do better next time!",
+        "Don't worry, next time you can do better!",
+        "Keep trying, the penguins need you!"
+};
 // Provide a reference to the views for each data item
 // Complex data items may need more than one view per item, and
 // you provide access to all the views for a data item in a view holder
@@ -33,7 +44,7 @@ class MyViewHolder extends RecyclerView.ViewHolder {
         v.findViewById(R.id.button_fail).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Snackbar.make(v, "Oh! You'll do better next time!", Snackbar.LENGTH_LONG)
+                Snackbar.make(v, MISSED[new Random().nextInt(MISSED.length)], Snackbar.LENGTH_LONG)
                         .show();
                 SharedPreferences sharedPref = v.getContext().getSharedPreferences(
                         v.getContext().getResources().getString(R.string.prf_prefs_key), Context.MODE_PRIVATE);
@@ -44,15 +55,13 @@ class MyViewHolder extends RecyclerView.ViewHolder {
                 editor.putInt(v.getContext().getResources().getString(R.string.prf_player_xp), xp);
                 editor.apply();
                 editor.commit();
-
-                System.out.println(xp);
             }
         });
 
         v.findViewById(R.id.button_ok).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Snackbar.make(v, "Great! You're saving the penguins!", Snackbar.LENGTH_LONG)
+                Snackbar.make(v, DONE[new Random().nextInt(DONE.length)], Snackbar.LENGTH_LONG)
                         .show();
                 SharedPreferences sharedPref = v.getContext().getSharedPreferences(
                         v.getContext().getResources().getString(R.string.prf_prefs_key), Context.MODE_PRIVATE);
@@ -63,8 +72,6 @@ class MyViewHolder extends RecyclerView.ViewHolder {
                 editor.putInt(v.getContext().getResources().getString(R.string.prf_player_xp), xp);
                 editor.apply();
                 editor.commit();
-
-                System.out.println(xp);
             }
         });
     }
