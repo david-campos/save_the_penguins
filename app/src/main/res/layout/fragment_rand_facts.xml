@@ -22,7 +22,10 @@
             android:layout_gravity="center_vertical"
             android:textStyle="italic"
             android:fontFamily="serif"
-            android:textSize="30sp"/>
+            android:textSize="28sp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -30,7 +33,9 @@
             android:textAlignment="center"
             android:textStyle="italic"
             android:fontFamily="serif"
-            android:textSize="30sp"/>
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:textSize="28sp"/>
     </TextSwitcher>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton

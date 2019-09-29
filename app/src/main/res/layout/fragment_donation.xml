@@ -31,8 +31,6 @@
         android:layout_height="wrap_content"
         android:text="@string/donation_help_text"
         android:layout_marginBottom="10pt"
-        android:layout_marginRight="10pt"
-        android:layout_marginLeft="10pt"
         android:textSize="10pt"
         android:textAlignment="center"/>
 
