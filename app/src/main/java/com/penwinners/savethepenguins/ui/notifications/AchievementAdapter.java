@@ -44,8 +44,8 @@ class MyViewHolder extends RecyclerView.ViewHolder {
         v.findViewById(R.id.button_fail).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Snackbar.make(v, MISSED[new Random().nextInt(MISSED.length)], Snackbar.LENGTH_LONG)
-                        .show();
+                Snackbar snackbar = Snackbar.make(v, MISSED[new Random().nextInt(MISSED.length)], Snackbar.LENGTH_LONG);
+                snackbar.show();
                 SharedPreferences sharedPref = v.getContext().getSharedPreferences(
                         v.getContext().getResources().getString(R.string.prf_prefs_key), Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedPref.edit();
@@ -61,8 +61,9 @@ class MyViewHolder extends RecyclerView.ViewHolder {
         v.findViewById(R.id.button_ok).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Snackbar.make(v, DONE[new Random().nextInt(DONE.length)], Snackbar.LENGTH_LONG)
-                        .show();
+                Snackbar snackbar =  Snackbar.make(v, DONE[new Random().nextInt(DONE.length)], Snackbar.LENGTH_LONG);
+                snackbar.getView().setBackgroundColor(v.getResources().getColor(R.color.colorAccent));
+                snackbar.show();
                 SharedPreferences sharedPref = v.getContext().getSharedPreferences(
                         v.getContext().getResources().getString(R.string.prf_prefs_key), Context.MODE_PRIVATE);
                 int xp = sharedPref.getInt(v.getContext().getResources().getString(R.string.prf_player_xp), 50);
